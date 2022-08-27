@@ -1,0 +1,121 @@
+.completed {
+  text-decoration: line-through;
+  color: #4caf50;
+  border-color: #4caf50;
+}
+
+.delete-img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  filter: invert(0.5);
+  -webkit-filter: invert(0.5);
+}
+
+.delete-img:hover {
+  transform: matrix(1.2, 0, 0, 1.2, 0, 0);
+}
+
+.check-img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.cancel-img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.cancel-img:hover {
+  transform: matrix(1.2, 0, 0, 1.2, 0, 0);
+}
+
+.check-img:hover {
+  transform: matrix(1.2, 0, 0, 1.2, 0, 0);
+}
+
+.check-img:active {
+  text-decoration: line-through;
+}
+
+.hidden {
+  display: none;
+}
+
+.todo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+input {
+  width: 20rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus {
+  border-color: #4caf50;
+}
+
+button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover {
+  transform: matrix(1.1, 0, 0, 1.1, 0, 0);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+  height: 2rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}

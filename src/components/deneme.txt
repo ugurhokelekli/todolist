@@ -1,0 +1,80 @@
+const Todo = () => {
+  const [tasks, setTasks] = useState([]);
+  const [task, setTask] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  useEffect(() => {
+    if (task.length > 0) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  }, [task]);
+
+  const addTask = () => {
+    if (tasks.includes(task)) {
+      setIsDisabled(true);
+    } else {
+      setTasks([...tasks, task]);
+      setTask("");
+    }
+  };
+
+  const deleteTask = (index) => {
+    const newTasks = tasks.filter((task, i) => i !== index);
+    setTasks(newTasks);
+  };
+
+  const completeTask = (index) => {
+    const newTasks = tasks.map((task, i) => {
+      if (i === index) {
+        return { ...task, isCompleted: !task.isCompleted };
+      }
+      return task;
+    });
+    setTasks(newTasks);
+  };
+
+  const editTask = (index, newTask) => {
+    const newTasks = tasks
+      .map((task, i) => {
+        if (i === index) {
+          return { ...task, task: newTask };
+        }
+        return task;
+      })
+      .filter((task) => task.task.length > 0);
+    setTasks(newTasks);
+  };
+
+  return (
+    <div className="todo">
+      <div className="todo__input">
+        <input
+          type="text"
+          value={task}
+          onChange={(e) => setTask(e.target.value)}
+        />
+        <button onClick={addTask} disabled={isDisabled}>
+          Add
+        </button>
+      </div>
+      <div className="todo__list">
+        {tasks.map((task, index) => (
+          <div key={index} className="todo__task">
+            <p className={task.isCompleted ? "todo__task--completed" : ""}>
+              {task}
+            </p>
+            <button onClick={() => completeTask(index)}>
+              {task.isCompleted ? "Unmark" : "Mark"}
+            </button>
+            <button onClick={() => editTask(index)}>Edit</button>
+            <button onClick={() => deleteTask(index)}>Delete</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Todo;
